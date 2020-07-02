@@ -56,7 +56,6 @@ public class AddUserController {
 		return "Hello world";
 	}
 
-	//@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/userList", method = RequestMethod.GET)
 	public @ResponseBody List<User> getAllUsers() {
 
@@ -65,7 +64,6 @@ public class AddUserController {
 		return users;
 	}
 
-	//@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(value = "/users", consumes = "application/json", produces = "application/json")
 	public List<User> getUserList(@RequestBody Credentials credentials) {
 		// System.out.println("userNamePassword : "+credentials.getUsername() +" "+
@@ -76,7 +74,6 @@ public class AddUserController {
 		return users;
 	}
 
-	//@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(value = "/addUser", consumes = "application/json", produces = "application/json")
 	public List<User> addUser(@RequestBody User user) {
 
@@ -87,7 +84,6 @@ public class AddUserController {
 		return userList;
 	}
 
-	//@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(value = "/modifyUser", consumes = "application/json", produces = "application/json")
 	public List<User> modifyExistingUser(@RequestBody User user) {
 
@@ -98,7 +94,6 @@ public class AddUserController {
 		return userList;
 	}
 
-	//@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(value = "/deleteUser", consumes = "application/json", produces = "application/json")
 	public List<User> deleteUser(@RequestBody Long userId) {
 
@@ -107,7 +102,6 @@ public class AddUserController {
 		return users;
 	}
 
-	//@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)
 			throws Exception {
