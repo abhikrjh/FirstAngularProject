@@ -11,10 +11,9 @@ import java.util.Set;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Repository;
 
-import com.example.FirstAngularProject.model.User;
 
-@Repository
-public class UserDAO {
+//@Repository
+public class UserDAO {/*
 
 	private static final Map<Long, User> userMap = new HashMap<Long, User>();
 
@@ -123,4 +122,4 @@ public class UserDAO {
 		return usersList;
 	}
 
-}
+*/}

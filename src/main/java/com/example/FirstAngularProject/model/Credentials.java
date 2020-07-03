@@ -1,17 +1,9 @@
 package com.example.FirstAngularProject.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-import org.springframework.lang.NonNull;
-
-@Entity
 public class Credentials {
 
-	@Id
 	private String username;
 
-	@NonNull
 	private String password;
 
 	public String getUsername() {

@@ -1,8 +1,7 @@
 package com.example.FirstAngularProject.Authentication;
 
-import javax.persistence.Entity;
 
-@Entity
+//@Entity
 public class AuthenticationRequest {
 
 	private String username;
