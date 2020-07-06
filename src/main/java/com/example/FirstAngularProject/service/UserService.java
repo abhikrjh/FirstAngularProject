@@ -9,5 +9,7 @@ public interface UserService {
 	public List<UserDetail> findAllUser();
 	
 	public UserDetail findUserByusername(String username);
+	
+	public void saveUser(UserDetail user);
 
 }

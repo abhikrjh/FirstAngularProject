@@ -62,7 +62,7 @@ public class Encryption {
 	    {
 	    	Encryption td= new Encryption();
 
-	        String target="mahendra";
+	        String target="Kumar";
 	        String encrypted=td.encrypt(target);
 	        String decrypted=td.decrypt(encrypted);
 

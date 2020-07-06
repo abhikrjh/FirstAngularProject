@@ -30,4 +30,10 @@ public class UserServiceImpl implements UserService{
 		return user;
 	}
 
+
+	@Override
+	public void saveUser(UserDetail user) {
+		userRepository.save(user);
+	}
+
 }
