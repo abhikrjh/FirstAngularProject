@@ -7,6 +7,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,6 +53,7 @@ public class AddUserController {
 		 return employees;
 	}
   
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping(value = "/deleteEmployee", consumes = "application/json", produces = "application/json")
 	public List<Employee> deleteEmployee(@RequestBody Long employeeId) {
 		employeeService.deleteEmployee(employeeId);

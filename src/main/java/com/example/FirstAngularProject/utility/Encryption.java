@@ -64,6 +64,7 @@ public class Encryption {
 
 	        String target="Kumar";
 	        String encrypted=td.encrypt(target);
+	        encrypted ="XTkOg5J78Wo=";
 	        String decrypted=td.decrypt(encrypted);
 
 	        System.out.println("String To Encrypt: "+ target);
