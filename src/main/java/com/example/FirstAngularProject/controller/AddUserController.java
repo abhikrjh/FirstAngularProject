@@ -77,6 +77,13 @@ public class AddUserController {
 		 userService.saveUser(user);
 	}
 
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(value = "/usersList", method = RequestMethod.GET)
+	public List<UserDetail> getAllUsers(){
+		List<UserDetail> users = userService.findAllUser();
+		return users;
+	}
+	
 	/*@PostMapping(value = "/modifyUser", consumes = "application/json", produces = "application/json")
 	public List<User> modifyExistingUser(@RequestBody User user) {
 
