@@ -1,7 +1,9 @@
 package com.example.FirstAngularProject.SpringSecurity;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,9 +15,14 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.session.SessionManagementFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
 import com.example.FirstAngularProject.serviceImpl.MyUserDetailService;
 
+@Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter{
@@ -34,14 +41,16 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter{
 		super.configure(auth);
 		auth.userDetailsService(myUserDetailService);
 	}
-	
+	 @Bean
+	 ResponseHeaderFilter corsFilter() {
+	     ResponseHeaderFilter filter = new ResponseHeaderFilter();
+	     return filter;
+	 }
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// TODO Auto-generated method stub
-		/*http.cors().disable();
-		http.csrf().disable().authorizeRequests().antMatchers("/authenticate").permitAll().anyRequest().authenticated();*/
-
-		http.csrf().disable()
+		http.addFilterBefore(corsFilter(), SessionManagementFilter.class).csrf().disable()
 		// dont authenticate this particular request
 		.authorizeRequests().antMatchers("/authenticate","/registerUser")
         .permitAll().antMatchers(HttpMethod.OPTIONS, "/**")
@@ -71,8 +80,6 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter{
 	public PasswordEncoder  passwordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
-	
-	
 
 	@Override
 	@Bean

@@ -1,8 +1,5 @@
 package com.example.FirstAngularProject.controller;
 
-
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.FirstAngularProject.Authentication.AuthenticationRequest;
 import com.example.FirstAngularProject.Authentication.AuthenticationResponse;
 import com.example.FirstAngularProject.SpringSecurity.JwtTokenUtil;
-import com.example.FirstAngularProject.model.UserDetail;
 import com.example.FirstAngularProject.service.EmployeeService;
 import com.example.FirstAngularProject.service.UserService;
 import com.example.FirstAngularProject.serviceImpl.MyUserDetailService;
